@@ -1,0 +1,668 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Ambara design tokens: a night sky — deep ink, starlight text, saffron-gold and aurora accents */
+@theme {
+  --font-display: "Fraunces", "Noto Serif Devanagari", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", "Noto Sans Devanagari", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #070a1c;
+  --color-night: #0c1130;
+  --color-dusk: #151b45;
+  --color-star: #eeeaf8;
+  --color-mist: #aeaacb;
+  --color-haze: #77739a;
+  --color-gold: #f3b94d;
+  --color-gold-soft: #f8d58e;
+  --color-ember: #ff7c5c;
+  --color-aurora: #8b7bff;
+  --color-lagoon: #44d7c7;
+  --color-rose: #ff6f9c;
+  --color-fg: #ffffff; /* overlays (borders, tints): white on dark, deep ink on light */
+  --color-on-gold: #070a1c; /* text on gold surfaces, same in both themes */
+
+  --radius-card: 1.5rem;
+  --shadow-glow: 0 0 0 1px rgb(var(--fg-rgb) / 0.06), 0 18px 50px -20px var(--shadow-drop);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-twinkle: twinkle 4s ease-in-out infinite;
+  --animate-spin-slow: spin 24s linear infinite;
+  --animate-spin-rev: spin-rev 36s linear infinite;
+  --animate-shimmer: shimmer 2.2s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.25; }
+    50% { opacity: 1; }
+  }
+  @keyframes spin-rev {
+    to { transform: rotate(-360deg); }
+  }
+  @keyframes shimmer {
+    from { background-position: -200% 0; }
+    to { background-position: 200% 0; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); filter: blur(4px); }
+  }
+}
+
+/* First-load entrance for hero text: pure CSS, so the text is in the server HTML and visible without JS */
+@utility rise {
+  animation: rise 0.9s var(--ease-out-soft) both;
+}
+
+/* Theme values. Dark (default) = the original look, value for value. Light overrides them. */
+:root {
+  --fg-rgb: 255 255 255;
+  --shadow-drop: rgb(0 0 0 / 0.7);
+  --panel-bg: linear-gradient(180deg, rgb(255 255 255 / 0.055), rgb(255 255 255 / 0.025));
+  --field-bg: rgb(7 10 28 / 0.55);
+  --field-bg-focus: rgb(7 10 28 / 0.8);
+  --sky-1: rgb(139 123 255 / 0.18);
+  --sky-2: rgb(68 215 199 / 0.08);
+  --sky-3: rgb(243 185 77 / 0.08);
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  /* reading-card accent icons and dates: deeper shades that read on white (dark keeps its pastel defaults) */
+  --accent-ink: 38%;
+  --color-ink: #f5f3fb;
+  --color-night: #ffffff;
+  --color-dusk: #ebe7f6;
+  --color-star: #1c1932;
+  --color-mist: #4a4665;
+  --color-haze: #6c688a;
+  --color-gold: #b3730a;
+  --color-gold-soft: #cf8f1e;
+  --color-ember: #d24f2e;
+  --color-aurora: #5f4ee6;
+  --color-lagoon: #0b8579;
+  --color-rose: #cf3c6e;
+  --color-fg: #1c1932;
+  --fg-rgb: 28 25 50;
+  --shadow-drop: rgb(45 35 100 / 0.16);
+  --panel-bg: linear-gradient(180deg, rgb(255 255 255 / 0.94), rgb(255 255 255 / 0.82));
+  --field-bg: #ffffff;
+  --field-bg-focus: #ffffff;
+  --sky-1: rgb(139 123 255 / 0.16);
+  --sky-2: rgb(68 215 199 / 0.12);
+  --sky-3: rgb(243 185 77 / 0.16);
+  --prose-body: #3b3856;
+  --prose-headings: #1c1932;
+  --prose-bold: #13102a;
+  --prose-quotes: #29263f;
+  --prose-links: #9a5f06;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background: var(--color-ink);
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-star);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    min-height: 100dvh;
+    overflow-x: clip;
+  }
+  html[lang="hi"] body {
+    line-height: 1.7;
+  }
+  ::selection {
+    background: rgb(243 185 77 / 0.35);
+    color: white;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  :root:not([data-theme="light"]) input[type="date"]::-webkit-calendar-picker-indicator,
+  :root:not([data-theme="light"]) input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) sepia(0.4) saturate(3) hue-rotate(5deg);
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+  :root[data-theme="light"] ::selection {
+    color: var(--color-star);
+  }
+  /* Logo: a slightly deeper crescent and a gold star so it reads on a light sky */
+  :root[data-theme="light"] .logo-stop-a {
+    stop-color: #f0b04a;
+  }
+  :root[data-theme="light"] .logo-star {
+    fill: #b3730a;
+  }
+  /* Stars only make sense on the night sky */
+  :root[data-theme="light"] .starfield {
+    display: none;
+  }
+  /* Zodiac wheel lines and glyphs on a light sky */
+  :root[data-theme="light"] .zodiac-wheel [stroke^="rgba(255"] {
+    stroke: rgb(28 25 50 / 0.16);
+  }
+  :root[data-theme="light"] .zodiac-wheel text {
+    fill: #b3730a;
+  }
+}
+
+@layer components {
+  /* The sky behind every page: a soft nebula wash; stars are drawn by <Starfield/> */
+  .sky {
+    background:
+      radial-gradient(1200px 600px at 85% -10%, var(--sky-1), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, var(--sky-2), transparent 60%),
+      radial-gradient(800px 600px at 50% 110%, var(--sky-3), transparent 60%),
+      var(--color-ink);
+  }
+
+  .panel {
+    background: var(--panel-bg);
+    border: 1px solid rgb(var(--fg-rgb) / 0.08);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-glow);
+    backdrop-filter: blur(14px);
+  }
+
+  .hairline {
+    border-color: rgb(var(--fg-rgb) / 0.08);
+  }
+
+  .text-gilded {
+    background: linear-gradient(100deg, var(--color-gold-soft), var(--color-gold) 40%, var(--color-ember));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+  }
+  html[lang="hi"] .eyebrow {
+    letter-spacing: 0.04em;
+    font-size: 0.8rem;
+  }
+
+  .field {
+    width: 100%;
+    border-radius: 0.9rem;
+    border: 1px solid rgb(var(--fg-rgb) / 0.1);
+    background: var(--field-bg);
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    color: var(--color-star);
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  }
+  .field::placeholder {
+    color: var(--color-haze);
+  }
+  .field:hover {
+    border-color: rgb(var(--fg-rgb) / 0.18);
+  }
+  .field:focus {
+    outline: none;
+    border-color: rgb(243 185 77 / 0.7);
+    box-shadow: 0 0 0 4px rgb(243 185 77 / 0.12);
+    background: var(--field-bg-focus);
+  }
+  .field[aria-invalid="true"] {
+    border-color: rgb(255 124 92 / 0.8);
+    box-shadow: 0 0 0 4px rgb(255 124 92 / 0.1);
+  }
+  select.field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aeaacb' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+  select.field option {
+    background: var(--color-night);
+  }
+
+  .btn-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.85rem 1.6rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: #1b1206;
+    background: linear-gradient(100deg, #f8d58e, #f3b94d 45%, #ffa04d); /* same gold in both themes */
+    box-shadow: 0 10px 30px -10px rgb(243 185 77 / 0.6), inset 0 1px 0 rgb(255 255 255 / 0.5);
+    transition: transform 0.2s var(--ease-out-soft), box-shadow 0.2s, filter 0.2s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 34px -10px rgb(243 185 77 / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.5);
+  }
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+  .btn-primary:disabled {
+    filter: grayscale(0.4) brightness(0.8);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.75rem 1.3rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--color-star);
+    border: 1px solid rgb(var(--fg-rgb) / 0.14);
+    background: rgb(var(--fg-rgb) / 0.03);
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  .btn-ghost:hover {
+    background: rgb(var(--fg-rgb) / 0.08);
+    border-color: rgb(var(--fg-rgb) / 0.24);
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, rgb(var(--fg-rgb) / 0.04), rgb(var(--fg-rgb) / 0.1), rgb(var(--fg-rgb) / 0.04));
+    background-size: 200% 100%;
+    animation: var(--animate-shimmer);
+    border-radius: 0.75rem;
+  }
+
+  .article h2,
+  .article h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    scroll-margin-top: 6rem;
+  }
+  .article table {
+    display: block;
+    overflow-x: auto;
+    font-size: 0.9em;
+  }
+  .article a {
+    text-decoration-color: rgb(243 185 77 / 0.4);
+    text-underline-offset: 3px;
+  }
+  .article a:hover {
+    text-decoration-color: var(--color-gold);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+ * Long-form text (articles and reading cards) uses `prose prose-invert`, whose colours the typography plugin sets
+ * in the utilities layer. Dark keeps the plugin's colours; light needs dark ink, so this rule sits outside any
+ * layer to take precedence.
+ */
+:root[data-theme="light"] .article {
+  --tw-prose-invert-body: var(--prose-body);
+  --tw-prose-invert-headings: var(--prose-headings);
+  --tw-prose-invert-lead: var(--prose-body);
+  --tw-prose-invert-links: var(--prose-links);
+  --tw-prose-invert-bold: var(--prose-bold);
+  --tw-prose-invert-counters: var(--color-gold);
+  --tw-prose-invert-bullets: var(--color-gold);
+  --tw-prose-invert-hr: rgb(var(--fg-rgb) / 0.1);
+  --tw-prose-invert-quotes: var(--prose-quotes);
+  --tw-prose-invert-quote-borders: var(--color-aurora);
+  --tw-prose-invert-captions: var(--color-mist);
+  --tw-prose-invert-code: var(--prose-links);
+  --tw-prose-invert-th-borders: rgb(var(--fg-rgb) / 0.16);
+  --tw-prose-invert-td-borders: rgb(var(--fg-rgb) / 0.08);
+}
+
+/* ---------------------------------------------------------------------------------------------------------------
+   Home page "pop" design (components/home/PopHome.tsx). Everything below is scoped to .pop, so no other page changes.
+   Dark is the default (like the rest of the site); light follows the theme toggle. The site colour tokens are
+   re-pointed inside .pop so the shared birth-details form takes the same look.
+   --------------------------------------------------------------------------------------------------------------- */
+.pop {
+  --p-bg: #0c0a16;
+  --p-text: #f3eefc;
+  --p-muted: #b9b1cc;
+  --p-card: #191527;
+  --p-field: #110e1c;
+  --p-line: #ece6f7;
+  --p-shadow: #ece6f7;
+  --p-mark: #7b62d9;
+  --p-ink: #17131f; /* text on pastel tiles, both themes */
+
+  --color-ink: var(--p-bg);
+  --color-night: var(--p-card);
+  --color-star: var(--p-text);
+  --color-mist: var(--p-muted);
+  --color-haze: #8f879e;
+  --color-gold: #ffd66b;
+  --color-gold-soft: #ffd66b;
+  --color-on-gold: #17131f;
+  --color-fg: var(--p-line);
+  --fg-rgb: 236 230 247;
+  --field-bg: var(--p-field);
+  --field-bg-focus: var(--p-field);
+
+  --font-display: "Bricolage Grotesque", "Noto Serif Devanagari", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Bricolage Grotesque", "Noto Sans Devanagari", ui-sans-serif, system-ui, sans-serif;
+  --p-gold-text: #ffd66b;
+
+  background: var(--p-bg);
+  color: var(--p-text);
+  font-family: var(--font-sans);
+}
+.pop-home {
+  padding-bottom: 2rem;
+}
+:root[data-theme="light"] .pop {
+  --p-bg: #f6f3fb;
+  --p-text: #17131f;
+  --p-muted: #3f3850;
+  --p-card: #ffffff;
+  --p-field: #f6f3fb;
+  --p-line: #17131f;
+  --p-shadow: #17131f;
+  --p-mark: #b9a6f5;
+  --color-haze: #6f6782;
+  --fg-rgb: 23 19 31;
+  --p-gold-text: #7a4f00;
+}
+
+/* Shared pieces across the public pages */
+.pop .font-display {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+html[lang="hi"] .pop .font-display {
+  letter-spacing: 0;
+}
+.pop .text-gold,
+.pop .eyebrow {
+  color: var(--p-gold-text);
+}
+.pop .eyebrow {
+  font-family: "DM Mono", ui-monospace, monospace;
+  letter-spacing: 0.06em;
+}
+.pop .panel {
+  background: var(--p-card);
+  border: 2px solid var(--p-line);
+  border-radius: 1.5rem;
+  box-shadow: 6px 6px 0 var(--p-shadow);
+  backdrop-filter: none;
+}
+.pop .panel .blur-3xl,
+.pop .panel .blur-2xl {
+  display: none;
+}
+.pop .skeleton {
+  border-radius: 1rem;
+}
+.pop .from-gold-soft.to-gold {
+  background: #ffd66b;
+}
+.pop .hairline {
+  border-color: var(--p-line);
+}
+
+.pop-mono {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.875rem;
+}
+.pop-h1 {
+  font-weight: 800;
+  font-size: clamp(3rem, 6.6vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+html[lang="hi"] .pop-h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+.pop-mark {
+  background: var(--p-mark);
+  color: inherit;
+  padding: 0 0.12em;
+  border-radius: 0.16em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+:root:not([data-theme="light"]) .pop-mark {
+  color: #fff;
+}
+.pop-h2 {
+  font-weight: 800;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.pop-pill {
+  font-family: "DM Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.65rem;
+  border: 2px solid var(--p-line);
+  border-radius: 999px;
+  color: var(--p-ink);
+  white-space: nowrap;
+}
+.pop-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 2px solid var(--p-line);
+  flex: none;
+}
+.pop-glyph {
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 999px;
+  border: 2px solid var(--p-line);
+  color: var(--p-ink);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Cards */
+.pop-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--p-line);
+  transition: transform 0.12s, box-shadow 0.12s, background 0.15s, color 0.15s;
+}
+.pop-card-big {
+  min-height: 12.5rem;
+  gap: 1rem;
+  padding: 1.4rem;
+  border-radius: 1.5rem;
+  color: var(--p-ink);
+  box-shadow: 5px 5px 0 var(--p-shadow);
+}
+.pop-card-big:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--p-shadow);
+}
+.pop-card-small {
+  min-height: 8.75rem;
+  gap: 0.6rem;
+  padding: 1.1rem;
+  border-radius: 1.25rem;
+  background: var(--p-card);
+}
+.pop-card-small:hover {
+  background: var(--tile);
+  color: var(--p-ink);
+  --color-mist: #3f3850;
+}
+.pop-card:focus-visible {
+  outline: 3px solid var(--p-mark);
+  outline-offset: 3px;
+}
+
+/* Sticky jump chips under the site header */
+.pop-chips {
+  position: sticky;
+  top: 4rem;
+  z-index: 10;
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.1rem -1rem 0;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  background: var(--p-bg);
+  scrollbar-width: none;
+}
+.pop-chips::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 640px) {
+  .pop-chips {
+    flex-wrap: wrap;
+    margin: 1.1rem -1.5rem 0;
+    padding: 0.75rem 1.5rem;
+  }
+}
+.pop-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  padding: 0 1rem;
+  flex: none;
+  white-space: nowrap;
+  border: 2px solid var(--p-line);
+  border-radius: 999px;
+  background: var(--p-card);
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: background 0.15s, color 0.15s;
+}
+.pop-chip:hover {
+  background: #ffd66b;
+  color: var(--p-ink);
+}
+
+/* The shared birth-details form, restyled inside the hero */
+.pop-form .panel {
+  border-radius: 1.75rem;
+  box-shadow: 8px 8px 0 var(--p-shadow);
+}
+.pop .panel h2 {
+  font-family: inherit;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.pop .field {
+  border: 2px solid var(--p-line);
+  border-radius: 0.9rem;
+  font-weight: 500;
+}
+.pop .field:hover {
+  border-color: var(--p-line);
+}
+.pop .field:focus {
+  border-color: var(--p-line);
+  box-shadow: 0 0 0 4px var(--p-mark);
+}
+.pop .btn-primary {
+  border: 2px solid var(--p-line);
+  border-radius: 1rem;
+  background: #ffd66b;
+  color: #17131f;
+  font-weight: 800;
+  box-shadow: 4px 4px 0 var(--p-shadow);
+}
+.pop .btn-primary:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--p-shadow);
+}
+.pop [role="radiogroup"] {
+  border: 2px solid var(--p-line);
+}
+.pop .btn-ghost {
+  border: 2px solid var(--p-line);
+}
+
+/* Lumi (components/lumi): idle motion of the mark, and the launcher's soft ring */
+.lumi-live .lumi-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lumi-blink 4.6s infinite;
+}
+.lumi-live .lumi-star {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: lumi-twinkle 2.8s ease-in-out infinite;
+}
+@keyframes lumi-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.12); }
+}
+@keyframes lumi-twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(0.7) rotate(45deg); opacity: 0.75; }
+}
+.lumi-ping {
+  animation: lumi-ping 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+@keyframes lumi-ping {
+  0% { transform: scale(1); opacity: 0.7; }
+  80%, 100% { transform: scale(1.45); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lumi-live .lumi-eyes,
+  .lumi-live .lumi-star,
+  .lumi-ping {
+    animation: none;
+  }
+}
+/* Lumi dozing on the home launcher: three z's drifting up */
+.lumi-z {
+  left: 0;
+  bottom: 0;
+  opacity: 0;
+  animation: lumi-z 2.4s ease-out infinite;
+}
+@keyframes lumi-z {
+  0% { transform: translate(0, 0) rotate(-10deg); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translate(14px, -22px) rotate(10deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lumi-z { animation: none; }
+}
