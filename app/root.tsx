@@ -50,12 +50,17 @@ export const useEnv = () => useRouteLoaderData<typeof loader>("root")?.env as Pu
 
 export function Layout({ children }: { children: ReactNode }) {
   const lang = langFromPath(useLocation().pathname);
+  const env = useEnv();
   return (
     <html lang={lang} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#070a1c" />
+        <meta
+          name="google-site-verification"
+          content={env?.googleSiteVerification || "ZpB_bgUfDaIX9RAGgiM6ivmABtryUKATLPweuvLEUVI"}
+        />
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <Meta />
         <Links />

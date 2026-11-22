@@ -72,4 +72,4 @@ export type CalculatorResult = {
 
 export type ApiErrorBody = { success: false; message: string; details?: { field: string; message: string }[] };
 
-export type PublicEnv = { apiUrl: string; siteUrl: string; allowIndexing: boolean };
+export type PublicEnv = { apiUrl: string; siteUrl: string; allowIndexing: boolean; googleSiteVerification?: string };

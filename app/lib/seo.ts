@@ -38,6 +38,9 @@ export function seo({ env, lang, title, description, path, alternatePath, noinde
     { name: "twitter:card", content: "summary" },
     { name: "twitter:title", content: fullTitle },
   ];
+  if (env?.googleSiteVerification) {
+    tags.push({ name: "google-site-verification", content: env.googleSiteVerification });
+  }
   if (description) {
     tags.push({ name: "description", content: description }, { property: "og:description", content: description }, { name: "twitter:description", content: description });
   }
