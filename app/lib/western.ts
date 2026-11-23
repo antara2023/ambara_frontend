@@ -53,6 +53,7 @@ export const CATEGORIES: { key: string; title: Record<Lang, string>; text: Recor
     title: { en: "Love & Relationships", hi: "प्रेम और रिश्ते" },
     text: { en: "How you love, what attracts you, and how two charts work together.", hi: "आप कैसे प्रेम करते हैं, क्या आकर्षित करता है, और दो कुंडलियां कैसे मिलती हैं।" },
     items: [
+      { id: "love-calculator", icon: "heart", hue: 345 },
       { id: "zodiac-compatibility-calculator", icon: "heart", hue: 345 },
       { id: "synastry-chart-calculator", icon: "rings", hue: 330 },
       { id: "composite-chart-calculator", icon: "merge", hue: 300 },

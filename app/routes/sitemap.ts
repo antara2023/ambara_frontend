@@ -16,12 +16,13 @@ export async function loader() {
   const entries: Entry[] = [
     { en: "/", hi: "/hi" },
     { en: "/calculators", hi: "/hi/calculators" },
+    { en: "/calculators/love-calculator", hi: "/hi/calculators/love-calculator" },
     ...TOOLS.map((t) => ({ en: `/tools/${t.slug}`, hi: `/hi/tools/${t.slug}` })),
     ...en
-      .filter((c) => !HIDDEN_IDS.has(c.calculatorId))
+      .filter((c) => !HIDDEN_IDS.has(c.calculatorId) && c.slug !== "love-calculator")
       .map((c) => ({ en: `/calculators/${c.slug}`, hi: hiById.has(c.calculatorId) ? `/hi/calculators/${hiById.get(c.calculatorId)}` : undefined })),
     ...hi
-      .filter((c) => !HIDDEN_IDS.has(c.calculatorId) && !en.some((e) => e.calculatorId === c.calculatorId))
+      .filter((c) => !HIDDEN_IDS.has(c.calculatorId) && c.slug !== "love-calculator" && !en.some((e) => e.calculatorId === c.calculatorId))
       .map((c) => ({ hi: `/hi/calculators/${c.slug}` })),
   ];
 

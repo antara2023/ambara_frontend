@@ -11,6 +11,7 @@ export default [
     index("routes/home.tsx", { id: "en-home" }),
     route("hi", "routes/home.tsx", { id: "hi-home" }),
     ...localized("calculators", "routes/calculators.tsx", "calculators"),
+    ...localized("calculators/love-calculator", "routes/love-calculator.tsx", "love-calculator"),
     ...localized("calculators/:slug", "routes/calculator.tsx", "calculator"),
     ...localized("calculators/:slug/result", "routes/result.tsx", "result"),
     ...localized("tools/:tool", "routes/tool.tsx", "tool"),

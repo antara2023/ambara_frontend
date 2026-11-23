@@ -135,7 +135,27 @@ export type HubSections = {
 };
 
 export function buildHub(list: CalculatorListItem[]): HubSections {
-  const visible = list.filter((c) => !HIDDEN_IDS.has(c.calculatorId));
+  const visible = [...list.filter((c) => !HIDDEN_IDS.has(c.calculatorId))];
+  if (!visible.some((c) => c.calculatorId === "love-calculator")) {
+    visible.unshift({
+      _id: "love-calculator",
+      calculatorId: "love-calculator",
+      name: "Love Calculator",
+      slug: "love-calculator",
+      lang: "en",
+      category: "love",
+      hero: {
+        h1: "Love Calculator",
+        subtitle: "Discover your true compatibility score across love, chemistry, friendship, and communication.",
+      },
+      listing: {
+        group: "categories",
+        sortOrder: 0,
+        shortDescription: "Deterministic 4-D compatibility and elemental zodiac synergy.",
+        icon: "heart",
+      },
+    });
+  }
   const byId = new Map(visible.map((c) => [c.calculatorId, c]));
 
   const pick = (defs: typeof CORE) =>

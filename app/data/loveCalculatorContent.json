@@ -1,0 +1,255 @@
+{
+  "title": "Love Calculator",
+  "author": {
+    "name": "Pankhuri Sarkar",
+    "byline": "By Pankhuri Sarkar",
+    "bio": "Pankhuri Sarkar is a content writer with an interest in astrology, relationships and connecting traditional knowledge with modern views. She aims to make complicated topics easy to understand and engaging for readers."
+  },
+  "intro": [
+    "A love calculator is a free online tool that gives two people a compatibility score, usually as a percentage. You enter both names or dates of birth to discover your love percentage. Name-based tests are entertaining, while Vedic date-of-birth matching explores compatibility through Moon signs and nakshatras.",
+    "Have you ever met someone and wondered whether the connection you share is something special? Perhaps you have exchanged a few conversations, discovered similar interests or found yourself curious about what your names might reveal together. That's where a love calculator comes in. It offers a simple way to explore compatibility, whether you are checking your crush's name or looking for a deeper astrological perspective."
+  ],
+  "howToUse": {
+    "title": "How to Use Ambara's Love Calculator",
+    "description": "Using Ambara's Love Calculator is simple. Choose the option that matches what you want to explore.",
+    "steps": [
+      {
+        "title": "Choose a calculator",
+        "detail": "Select By Name for a quick compatibility score, By Date of Birth for a Vedic compatibility reading, or FLAMES to play the popular name game."
+      },
+      {
+        "title": "Enter the required details",
+        "detail": "Add both names for the name and FLAMES options. For a date-of-birth reading, enter both birth dates and the additional details requested."
+      },
+      {
+        "title": "Check your information",
+        "detail": "Make sure the names and birth details are entered correctly."
+      },
+      {
+        "title": "Calculate your result",
+        "detail": "Click Calculate Love % to view your result and its interpretation."
+      },
+      {
+        "title": "Explore further",
+        "detail": "If you want to understand traditional Vedic compatibility in greater detail, explore Ambara's full Guna Milan report."
+      }
+    ]
+  },
+  "byName": {
+    "title": "Love Calculator by Name",
+    "paragraphs": [
+      "This calculator gives you a percentage compatibility between 2 names. Depending on the calculator, the percentage can be calculated by counting the number of matching letters, or by giving each letter a number. Some calculators will use numerology to calculate the percentage compatibility based on the totals of the numbers in each name. If we input Rahul and Priya into one of these calculators, we can get a percentage compatibility. This can be fun to do with friends.",
+      "Depending on which calculator you are using, different percentages may be given for Rahul and Priya. Overall, it is best to treat this calculator in a very casual way. It can make a casual conversation a bit more interesting, but cannot accurately represent the relationship between two people."
+    ]
+  },
+  "byDob": {
+    "title": "Love Calculator by Date of Birth",
+    "lead": "A love calculator by date of birth explores compatibility through birth-related information rather than simply comparing names. In India, numerology and Vedic astrology are two traditional approaches used to explore personal and relationship compatibility.",
+    "methods": [
+      {
+        "number": "1",
+        "name": "Numerology",
+        "paragraphs": [
+          "Numerology assigns numerical values to birth dates and uses them to explore personality characteristics and compatibility.",
+          "For example, consider someone born on 14 March 1998.",
+          "Their birth-date calculation would be: 1 + 4 + 3 + 1 + 9 + 9 + 8 = 35 -> 3 + 5 = 8",
+          "The resulting number is 8, often called the Life Path Number in numerology. The numbers obtained from two birth dates can then be compared according to a numerological system."
+        ]
+      },
+      {
+        "number": "2",
+        "name": "Vedic Astrology",
+        "paragraphs": [
+          "Using a person's date of birth provides information on their Rashi (Moon sign) and Nakshatra (birth star) which can be used to determine compatibility using Guna Milan. It is important to know accurate information on the date of birth so that the correct positions can be found.",
+          "As the moon moves into a new sign every 2.5 days, knowing the date and time of birth in relation to this helps to determine the correct positions. If you want to know the compatibility of individuals in more detail, using Vedic Astrology will provide a traditional method of doing this."
+        ]
+      }
+    ]
+  },
+  "flames": {
+    "title": "What Is FLAMES? The Classic Indian Love Game",
+    "lead": "Remember playing FLAMES with friends at school? The game uses two names to produce one of six results: Friends, Lovers, Affection, Marriage, Enemies or Siblings. FLAMES is a traditional name game, not an astrological compatibility method. It is popular because it is simple, familiar and entertaining.",
+    "howToPlayTitle": "How to Play FLAMES",
+    "steps": [
+      "Write down both names.",
+      "Identify the letters that appear in both names.",
+      "Cross out the common letters from both names.",
+      "Count the letters that remain.",
+      "Use the remaining count to eliminate letters from FLAMES repeatedly.",
+      "The final letter gives the result."
+    ],
+    "example": "For example, the names Rahul and Priya share the letters R and A. After removing the common letters, six letters remain. Using six to eliminate letters in the FLAMES sequence gives the result. The result is part of the game, not a prediction about a relationship. Try it with different names and see what comes up!"
+  },
+  "scoreMeaning": {
+    "title": "What Does Your Love Percentage Mean?",
+    "lead": "Your love percentage represents the result generated by the calculator's formula. It gives you a quick compatibility reading rather than a final judgement about a relationship.",
+    "table": [
+      { "range": "90–100%", "suggestion": "Strong match with a high compatibility score" },
+      { "range": "70–89%", "suggestion": "Good match with several shared qualities" },
+      { "range": "50–69%", "suggestion": "Average match where communication matters" },
+      { "range": "30–49%", "suggestion": "Mixed compatibility according to the test" },
+      { "range": "Below 30%", "suggestion": "Low compatibility score on this particular test" }
+    ],
+    "note": "A love percentage is a numerical result generated by a calculator. It gives you a quick way to explore the result of a name-based compatibility test. However, a score should not be treated as a final judgement about two people. Different calculators may use different methods, so their scores and interpretations can vary."
+  },
+  "gunaMilan": {
+    "title": "Vedic Love Compatibility: Understanding Guna Milan",
+    "lead": "Guna Milan is a method in Vedic Astrology to determine the compatibility between two people. In traditional Indian marriages, the Kundli of both individuals are matched based on eight factors. These factors are based on the Rashi (Moon sign) and Nakshatra (birth star) of the individuals. The maximum marks obtainable is 36, and are commonly referred to as Gunas.",
+    "kootasTableTitle": "The Eight Kootas of Guna Milan",
+    "kootas": [
+      { "koota": "Varna", "examines": "Spiritual and work temperament", "points": "1" },
+      { "koota": "Vashya", "examines": "Mutual attraction and influence", "points": "2" },
+      { "koota": "Tara", "examines": "Birth-star harmony and wellbeing", "points": "3" },
+      { "koota": "Yoni", "examines": "Traditional compatibility assessment", "points": "4" },
+      { "koota": "Graha Maitri", "examines": "Mental connection and friendship", "points": "5" },
+      { "koota": "Gana", "examines": "Nature and temperament", "points": "6" },
+      { "koota": "Bhakoot", "examines": "Emotional bond, family and finances", "points": "7" },
+      { "koota": "Nadi", "examines": "Health and family continuity", "points": "8" }
+    ],
+    "totalPoints": "36",
+    "marriageTitle": "How Many Gunas Should Match for Marriage?",
+    "marriageLead": "In traditional Guna Milan interpretations, the total number of matching Gunas is used as one factor when examining compatibility.",
+    "marriageTable": [
+      { "gunas": "33–36", "interpretation": "Excellent compatibility" },
+      { "gunas": "25–32", "interpretation": "Very good compatibility" },
+      { "gunas": "18–24", "interpretation": "Generally considered acceptable" },
+      { "gunas": "Below 18", "interpretation": "Further astrological consultation is traditionally recommended" }
+    ],
+    "additionalFactors": "Other factors may be taken into account. Other planetary positions in the birth chart such as Nadi dosha and Bhakoot dosha may also be considered. Guna Milan is therefore just one aspect of the overall traditional astrological calculation.",
+    "ctaText": "Planning to explore marriage compatibility? Ambara's Kundli Matching tool can help you explore your Guna Milan score out of 36 and understand the traditional factors involved."
+  },
+  "manglikDosha": {
+    "title": "What Is Manglik Dosha?",
+    "paragraphs": [
+      "Manglik Dosha occurs when Mars (Mangal) occurs in certain houses of the horoscope (1st, 4th, 7th, 8th and 12th). In some traditions, it is considered when Mars occurs in 2nd house as well. This is sometimes considered in conjunction with Guna Milan.",
+      "However, interpretation of this dosha can only be made once the whole horoscope has been analysed. In some astrological traditions, there are factors which can reduce or cancel out this dosha. It is important to view the whole horoscope to make any judgements."
+    ]
+  },
+  "comparison": {
+    "title": "Name Test vs Date-of-Birth Test vs Kundli Matching",
+    "lead": "Different compatibility methods use different information and approaches. Understanding their differences can help you choose the method that suits your curiosity.",
+    "rows": [
+      {
+        "basis": "Information required",
+        "nameTest": "Two names",
+        "dobTest": "Two birth dates",
+        "kundli": "Date, time and birthplace"
+      },
+      {
+        "basis": "What it compares",
+        "nameTest": "Letters",
+        "dobTest": "Numerological numbers",
+        "kundli": "Moon sign, Nakshatra and eight Kootas"
+      },
+      {
+        "basis": "Result",
+        "nameTest": "Love percentage",
+        "dobTest": "Number compatibility",
+        "kundli": "Score out of 36 and dosha assessment"
+      },
+      {
+        "basis": "Best suited for",
+        "nameTest": "Entertainment and curiosity",
+        "dobTest": "Exploring numerological compatibility",
+        "kundli": "Traditional relationship and marriage matching"
+      },
+      {
+        "basis": "Time required",
+        "nameTest": "Seconds",
+        "dobTest": "Seconds",
+        "kundli": "Online calculations may take seconds"
+      }
+    ],
+    "summary": "A name test offers a quick result, while numerology and Vedic astrology involve different traditional methods of interpretation. The right approach depends on what you want to explore."
+  },
+  "realCompatibility": {
+    "title": "What Really Makes Two People Compatible?",
+    "lead": "Compatibility is not determined by a calculator alone. It develops through everyday interactions, shared experiences and the way two people understand each other.",
+    "aspects": [
+      {
+        "title": "Communication",
+        "desc": "Being able to express thoughts and listen without unnecessary judgement."
+      },
+      {
+        "title": "Trust",
+        "desc": "Feeling comfortable being honest with one another."
+      },
+      {
+        "title": "Mutual respect",
+        "desc": "Accepting differences in opinions, interests and personalities."
+      },
+      {
+        "title": "Shared values",
+        "desc": "Having an understanding of the things that matter in life."
+      },
+      {
+        "title": "Emotional understanding",
+        "desc": "Recognising each other's feelings and responding thoughtfully."
+      },
+      {
+        "title": "Conflict resolution",
+        "desc": "Learning to handle disagreements through patience and communication."
+      }
+    ],
+    "closing": "Even if one person likes to watch cricket and the other likes K-dramas, it is possible to have mutual respect and appreciation. Although the score is a good way to get a fun conversation going, understanding and interacting with each other in a certain way gives a much more accurate insight into how compatible you two are."
+  },
+  "mistakes": {
+    "title": "Common Mistakes to Avoid When Using a Love Calculator",
+    "lead": "Love calculators are easy to use, but there are a few things worth remembering before interpreting your result.",
+    "items": [
+      "Taking a name score too seriously: Different calculators use different formulas, so the percentage is not a universal measurement.",
+      "Comparing scores across websites: An 85% result on one platform may not mean the same thing on another.",
+      "Judging someone through a number: A calculator should never determine how you view yourself or another person.",
+      "Sharing unnecessary personal information: A basic name test does not need your photographs, phone number or email address.",
+      "Using a name test for marriage decisions: Traditional marriage compatibility assessments involve more detailed kundli matching.",
+      "Ignoring real-life interactions: A calculator cannot replace communication, trust and mutual understanding."
+    ],
+    "warning": "Always check a website's privacy policy before entering personal birth information."
+  },
+  "faqs": [
+    {
+      "question": "Is a love calculator accurate?",
+      "answer": "A name-based love calculator uses a mathematical formula to generate a compatibility percentage. Different websites may produce different results because their formulas vary. Vedic compatibility tools follow traditional astrological systems involving Moon signs and nakshatras. Neither type of score should replace understanding a person through real-life interactions."
+    },
+    {
+      "question": "Can I check love compatibility by date of birth?",
+      "answer": "Yes. You can explore compatibility through numerology or Vedic astrology using birth dates. For Vedic matching, birth time and birthplace are also important. These details help determine the Moon sign and nakshatra required for Guna Milan calculations."
+    },
+    {
+      "question": "What is a good love percentage?",
+      "answer": "A score of 70% or above is generally interpreted as a good match in the example score ranges used by many love calculators. A score of 90% or above is often considered a strong match. However, these interpretations depend on the calculator's individual formula."
+    },
+    {
+      "question": "How many Gunas should match for marriage?",
+      "answer": "According to traditional Guna Milan interpretations, 18 or more Gunas out of 36 are generally considered acceptable. A score between 25 and 32 is considered very good, while 33–36 is considered excellent. Astrologers may also examine doshas and other birth-chart placements."
+    },
+    {
+      "question": "What does FLAMES stand for?",
+      "answer": "FLAMES stands for Friends, Lovers, Affection, Marriage, Enemies and Siblings. It is a traditional name-based game in which common letters are removed from two names. The remaining letters are counted to determine the final result."
+    },
+    {
+      "question": "Can I use a love calculator for my crush?",
+      "answer": "Yes! You can enter your name and your crush's name into a name-based love calculator to generate a fun compatibility percentage. You do not need their date of birth for this method. It is simply an entertaining way to explore what two names produce together."
+    },
+    {
+      "question": "Does a love calculator work for friendship?",
+      "answer": "Yes. You can enter the names of two friends to generate a name-based compatibility result. FLAMES also includes friendship and sibling-related outcomes. However, traditional Vedic Guna Milan is primarily associated with romantic and marriage compatibility."
+    },
+    {
+      "question": "Is my data safe on Ambara's Love Calculator?",
+      "answer": "Your personal information should always be handled according to the platform's privacy policy. Before publishing this information, Ambara's confirmed data collection, storage and retention practices should be explained here. You can review the Ambara Privacy Policy for more details."
+    }
+  ],
+  "tryWithSpecial": {
+    "title": "Try It With Someone Special",
+    "paragraphs": [
+      "Sometimes, you may be curious to see what love percentage you have with someone. Whether it be with a crush, playing a classic game of FLAMES or seeing compatibility in traditional Vedic Astrology, a love calculator can be a fun way to begin.",
+      "Whether you use it for fun, or to get a numerical insight from numerology or Guna Milan, there are many ways to think about relationships and compatibility.",
+      "However, the most meaningful relationships are formed from understanding, communication and respect. While a number may grab your attention, getting to know someone will tell you so much more."
+    ],
+    "consultation": {
+      "heading": "Want to explore your relationship compatibility in greater detail?",
+      "text": "Connect with a verified Ambara astrologer for a personalised traditional astrological consultation."
+    }
+  }
+}
