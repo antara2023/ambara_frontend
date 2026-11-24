@@ -40,7 +40,7 @@ export function Footer() {
               </li>
             ))}
             <li className="pt-2">
-              <Link className="font-semibold text-pink-400 hover:text-pink-300" to={withLang(lang, "/blog")}>{t("navBlog")}</Link>
+              <Link className="font-semibold text-pink-400 hover:text-pink-300" to={withLang(lang, "/blogs")}>{t("navBlog")}</Link>
             </li>
           </ul>
         </div>

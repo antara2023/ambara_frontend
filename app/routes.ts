@@ -15,8 +15,8 @@ export default [
     ...localized("calculators/:slug", "routes/calculator.tsx", "calculator"),
     ...localized("calculators/:slug/result", "routes/result.tsx", "result"),
     ...localized("tools/:tool", "routes/tool.tsx", "tool"),
-    ...localized("blog", "routes/blog.tsx", "blog"),
-    ...localized("blog/:slug", "routes/blog-post.tsx", "blog-post"),
+    ...localized("blogs", "routes/blog.tsx", "blog"),
+    ...localized("blogs/:slug", "routes/blog-post.tsx", "blog-post"),
     // Lumi chat (English only for now)
     route("lumi", "routes/lumi.tsx", { id: "en-lumi" }),
   ]),
