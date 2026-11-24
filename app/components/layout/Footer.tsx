@@ -39,6 +39,9 @@ export function Footer() {
                 <Link className="text-mist hover:text-star" to={withLang(lang, `/tools/${tool.slug}`)}>{tool.title[lang]}</Link>
               </li>
             ))}
+            <li className="pt-2">
+              <Link className="font-semibold text-pink-400 hover:text-pink-300" to={withLang(lang, "/blog")}>{t("navBlog")}</Link>
+            </li>
           </ul>
         </div>
       </div>

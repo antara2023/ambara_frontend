@@ -16,6 +16,7 @@ export const serverEnv = {
   siteUrl: trimSlash(process.env.SITE_URL || "http://localhost:5173"),
   allowIndexing: process.env.ALLOW_INDEXING === "true",
   googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION?.trim() || "ZpB_bgUfDaIX9RAGgiM6ivmABtryUKATLPweuvLEUVI",
+  wordpressUrl: trimSlash(process.env.WORDPRESS_API_URL || ""),
 };
 
 export const publicEnv = (): PublicEnv => ({

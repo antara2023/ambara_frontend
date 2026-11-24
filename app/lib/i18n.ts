@@ -9,6 +9,7 @@ const STRINGS = {
   themeDark: { en: "Switch to dark theme", hi: "डार्क थीम चुनें" },
   navCalculators: { en: "Calculators", hi: "कैलकुलेटर" },
   navTools: { en: "Life questions", hi: "जीवन के प्रश्न" },
+  navBlog: { en: "Blog", hi: "ब्लॉग" },
   navSarkari: { en: "Sarkari Naukri", hi: "सरकारी नौकरी" },
   language: { en: "Language", hi: "भाषा" },
   skipToContent: { en: "Skip to content", hi: "मुख्य सामग्री पर जाएं" },
