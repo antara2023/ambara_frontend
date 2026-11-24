@@ -63,14 +63,14 @@ export const meta: Route.MetaFunction = ({ loaderData, matches }) => {
   return seo({
     env,
     lang,
-    path: "/blog",
+    path: "/blogs",
     title: isHi ? "अम्बरा ब्लॉग — ज्योतिषीय लेख एवं मार्गदर्शन" : "Ambara Journal — Vedic & Western Astrology Insights",
     description: isHi
       ? "ज्योतिष, ग्रह चाल, नक्षत्र और संबंधों पर गहन लेख एवं मार्गदर्शन।"
       : "In-depth astrology articles, planetary transits, zodiac compatibility guides, and cosmic wisdom curated by Ambara.",
     breadcrumbs: [
       { name: "Ambara", path: "/" },
-      { name: isHi ? "ब्लॉग" : "Blog", path: "/blog" },
+      { name: isHi ? "ब्लॉग" : "Blogs", path: "/blogs" },
     ],
   });
 };

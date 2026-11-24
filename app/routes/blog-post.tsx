@@ -119,8 +119,8 @@ export default function BlogPostRoute({ loaderData }: Route.ComponentProps) {
           </li>
           <ChevronRight size={14} className="text-haze" />
           <li>
-            <Link to={withLang(lang, "/blog")} className="hover:text-star">
-              {isHi ? "ब्लॉग" : "Blog"}
+            <Link to={withLang(lang, "/blogs")} className="hover:text-star">
+              {isHi ? "ब्लॉग" : "Blogs"}
             </Link>
           </li>
           <ChevronRight size={14} className="text-haze" />
