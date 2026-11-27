@@ -147,7 +147,12 @@ export function Header() {
             className="overflow-hidden md:hidden"
           >
             <nav className="flex flex-col gap-1 px-4 pb-6 pt-2" aria-label="Mobile">
-              {[...nav, { to: "/lumi", label: "Ask Lumi (AI astrologer)" }, ...TOOLS.slice(1).map((tool) => ({ to: withLang(lang, `/tools/${tool.slug}`), label: tool.title[lang] }))].map((n, i) => (
+              {[
+                ...nav,
+                { to: "/lumi", label: "Ask Lumi (AI astrologer)" },
+                // Life questions hidden for now. To restore: uncomment the lines below.
+                // ...TOOLS.slice(1).map((tool) => ({ to: withLang(lang, `/tools/${tool.slug}`), label: tool.title[lang] })),
+              ].map((n, i) => (
                 <motion.div key={n.to + n.label} initial={{ opacity: 0, x: -12 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.04 * i }}>
                   <Link to={n.to} className="block rounded-xl px-3 py-3 text-base font-semibold text-star hover:bg-fg/5">
                     {n.label}
