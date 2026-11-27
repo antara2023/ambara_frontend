@@ -70,7 +70,8 @@ export function Header() {
   const nav = [
     { to: withLang(lang, "/"), label: t("navHome"), active: section === "/" || section === "" },
     { to: withLang(lang, "/calculators"), label: t("navCalculators"), active: section === "/calculators" || section.startsWith("/calculators/") },
-    { to: withLang(lang, `/tools/${TOOLS[0].slug}`), label: t("navTools"), active: section.startsWith("/tools/") },
+    // Life questions hidden for now. To restore: uncomment the next line.
+    // { to: withLang(lang, `/tools/${TOOLS[0].slug}`), label: t("navTools"), active: section.startsWith("/tools/") },
     { to: withLang(lang, "/blogs"), label: t("navBlog"), active: section === "/blogs" || section.startsWith("/blogs/") },
     // Sarkari Naukri nav item hidden for now. To restore: uncomment the next line.
     // { to: `${withLang(lang, "/calculators")}#sarkari`, label: t("navSarkari"), active: false },

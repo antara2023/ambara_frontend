@@ -167,11 +167,13 @@ export function PopHome({ list, lang }: { list: CalculatorListItem[]; lang: Lang
               <span className="pop-mono text-xs">{s.items.length}</span>
             </a>
           ))}
+          {/* Life questions navigation link hidden for now. To restore: uncomment below.
           <a href="#tools" onClick={jump("tools")} className="pop-chip">
             <span className="pop-dot" style={{ background: TILE.tools }} />
             {t("sectionTools")}
             <span className="pop-mono text-xs">{TOOLS.length}</span>
           </a>
+          */}
         </nav>
 
         {sections.map((s) => (
@@ -193,7 +195,7 @@ export function PopHome({ list, lang }: { list: CalculatorListItem[]; lang: Lang
           </div>
         ))}
 
-        {/* Life questions (AI tools) */}
+        {/* Life questions (AI tools) hidden for now. To restore: uncomment below.
         <div id="tools" className="scroll-mt-32 pt-11">
           <div className="flex flex-wrap items-center gap-3">
             <span className="pop-dot !h-[18px] !w-[18px]" style={{ background: TILE.tools }} />
@@ -210,6 +212,7 @@ export function PopHome({ list, lang }: { list: CalculatorListItem[]; lang: Lang
             ))}
           </div>
         </div>
+        */}
       </section>
 
       {/* Lumi, the AI astrologer, floating bottom-right */}

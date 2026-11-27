@@ -32,16 +32,21 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <p className="eyebrow mb-4">{t("navTools")}</p>
+          <p className="eyebrow mb-4">{t("navBlog")}</p>
           <ul className="space-y-2.5 text-sm">
+            <li>
+              <Link className="font-semibold text-pink-400 hover:text-pink-300" to={withLang(lang, "/blogs")}>{t("navBlog")}</Link>
+            </li>
+            {/* Life questions hidden for now. To restore: uncomment the lines below.
+            <li className="pt-2">
+              <p className="eyebrow mb-2">{t("navTools")}</p>
+            </li>
             {TOOLS.map((tool) => (
               <li key={tool.slug}>
                 <Link className="text-mist hover:text-star" to={withLang(lang, `/tools/${tool.slug}`)}>{tool.title[lang]}</Link>
               </li>
             ))}
-            <li className="pt-2">
-              <Link className="font-semibold text-pink-400 hover:text-pink-300" to={withLang(lang, "/blogs")}>{t("navBlog")}</Link>
-            </li>
+            */}
           </ul>
         </div>
       </div>
