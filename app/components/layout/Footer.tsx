@@ -11,7 +11,7 @@ export function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative mt-24 border-t-2 border-fg">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2">
         <div>
           <Wordmark />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-mist">{t("footerAbout")}</p>
@@ -31,24 +31,16 @@ export function Footer() {
             */}
           </ul>
         </div>
+        {/* Blog & Life questions hidden for now. To restore: uncomment the block below and change grid to md:grid-cols-[1.4fr_1fr_1fr].
         <div>
           <p className="eyebrow mb-4">{t("navBlog")}</p>
           <ul className="space-y-2.5 text-sm">
             <li>
               <Link className="font-semibold text-pink-400 hover:text-pink-300" to={withLang(lang, "/blogs")}>{t("navBlog")}</Link>
             </li>
-            {/* Life questions hidden for now. To restore: uncomment the lines below.
-            <li className="pt-2">
-              <p className="eyebrow mb-2">{t("navTools")}</p>
-            </li>
-            {TOOLS.map((tool) => (
-              <li key={tool.slug}>
-                <Link className="text-mist hover:text-star" to={withLang(lang, `/tools/${tool.slug}`)}>{tool.title[lang]}</Link>
-              </li>
-            ))}
-            */}
           </ul>
         </div>
+        */}
       </div>
       <div className="pop-mono border-t-2 border-fg py-6 text-center !text-xs text-mist">
         © {year} Ambara. {t("rights")}

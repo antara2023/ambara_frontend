@@ -15,8 +15,9 @@ export default [
     ...localized("calculators/:slug", "routes/calculator.tsx", "calculator"),
     ...localized("calculators/:slug/result", "routes/result.tsx", "result"),
     ...localized("tools/:tool", "routes/tool.tsx", "tool"),
-    ...localized("blogs", "routes/blog.tsx", "blog"),
-    ...localized("blogs/:slug", "routes/blog-post.tsx", "blog-post"),
+    // Blog routes hidden for now. To restore: uncomment the two lines below.
+    // ...localized("blogs", "routes/blog.tsx", "blog"),
+    // ...localized("blogs/:slug", "routes/blog-post.tsx", "blog-post"),
     // Lumi chat (English only for now)
     route("lumi", "routes/lumi.tsx", { id: "en-lumi" }),
   ]),
