@@ -17,7 +17,7 @@ export async function loader() {
     { en: "/", hi: "/hi" },
     { en: "/calculators", hi: "/hi/calculators" },
     { en: "/calculators/love-calculator", hi: "/hi/calculators/love-calculator" },
-    // { en: "/blogs", hi: "/hi/blogs" },
+    { en: "/blogs", hi: "/hi/blogs" },
     ...TOOLS.map((t) => ({ en: `/tools/${t.slug}`, hi: `/hi/tools/${t.slug}` })),
     ...en
       .filter((c) => !HIDDEN_IDS.has(c.calculatorId) && c.slug !== "love-calculator")

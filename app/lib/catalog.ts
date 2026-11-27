@@ -168,8 +168,22 @@ export function buildHub(list: CalculatorListItem[]): HubSections {
   // Calculators in the five categories are shown there only (each calculator appears in one section)
   const listedIds = new Set([...CORE, ...JAIMINI].map((d) => d.id).concat([...CATEGORY_IDS]));
   const categories = CATEGORIES.map((c) => ({ key: c.key, title: c.title, text: c.text, items: pick(c.items) })).filter((c) => c.items.length);
-  const inCategories = new Map(categories.flatMap((c) => c.items).map((c) => [c.calculatorId, c]));
-  const popular = popularIds().flatMap((id) => (inCategories.has(id) ? [inCategories.get(id)!] : []));
+
+  // Popular calculators: ONLY calculators where listing.group is explicitly set to "popular" in Admin.
+  // Any calculator moved/checked as "popular" in Admin will appear here.
+  const popularList: Item[] = [];
+  const addedPopularIds = new Set<string>();
+
+  for (const c of visible) {
+    if (c.listing?.group === "popular") {
+      if (!addedPopularIds.has(c.calculatorId)) {
+        const icon = (c.listing?.icon as IconName) || "sparkles";
+        popularList.push({ ...c, icon, hue: 260 });
+        addedPopularIds.add(c.calculatorId);
+      }
+    }
+  }
+
   const extras = visible
     .filter((c) => !isSarkari(c) && !listedIds.has(c.calculatorId))
     .map((c) => ({ ...c, icon: "sparkles" as IconName, hue: 250 }));
@@ -184,7 +198,7 @@ export function buildHub(list: CalculatorListItem[]): HubSections {
   if (ungrouped.length) grouped[grouped.length - 1].items.push(...ungrouped);
 
   return {
-    popular,
+    popular: popularList,
     categories,
     core: [...pick(CORE.filter((d) => !CATEGORY_IDS.has(d.id))), ...extras],
     jaimini: pick(JAIMINI),

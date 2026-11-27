@@ -644,8 +644,9 @@ export default function LoveCalculatorRoute({ loaderData }: Route.ComponentProps
         )}
       </AnimatePresence>
 
-      {/* Rich Editorial Article Section (from loveCalculatorContent.json) */}
-      <article className="mx-auto mt-24 max-w-4xl px-4 sm:px-6">
+      {/* Editorial Article Section commented out. To restore: set showEditorial to true */}
+      {false && (
+        <article className="mx-auto mt-24 max-w-4xl px-4 sm:px-6">
         <Reveal>
           <div className="border-t border-white/10 pt-12">
             {/* Author Byline */}
@@ -1034,6 +1035,7 @@ export default function LoveCalculatorRoute({ loaderData }: Route.ComponentProps
           </div>
         </Reveal>
       </article>
+      )}
     </div>
   );
 }

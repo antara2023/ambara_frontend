@@ -313,7 +313,22 @@ export default function AdminEdit() {
                 </select>
               )}
             </Field>
-            <Field id="group" label="Hub group" hint="“sarkari” puts it under Sarkari Naukri; empty = core">
+            <div className="md:col-span-2 rounded-2xl border border-amber-500/30 bg-amber-500/5 p-4 flex items-center justify-between">
+              <div>
+                <p className="font-semibold text-star text-sm">Most Popular Category ⭐</p>
+                <p className="text-xs text-mist mt-0.5">Show this calculator on the public site in the Most Popular section.</p>
+              </div>
+              <label className="flex items-center gap-2 cursor-pointer font-semibold text-xs text-amber-300">
+                <input
+                  type="checkbox"
+                  className="h-4 w-4 accent-amber-400"
+                  checked={draft.listing.group === "popular"}
+                  onChange={(e) => set("listing", { ...draft.listing, group: e.target.checked ? "popular" : "" })}
+                />
+                <span>Include in Most Popular</span>
+              </label>
+            </div>
+            <Field id="group" label="Hub group" hint="“popular” puts it in Most Popular; “sarkari” puts it under Sarkari Naukri; empty = standard">
               {(a) => <input {...a} className="field" value={draft.listing.group} onChange={(e) => set("listing", { ...draft.listing, group: e.target.value.trim() })} />}
             </Field>
             <Field id="cat" label="Category">

@@ -53,13 +53,13 @@ export const meta: Route.MetaFunction = ({ loaderData, matches }) => {
   const baseTags = seo({
     env,
     lang,
-    path: `/blogs/${post.slug}`,
+    path: `/blog/${post.slug}`,
     title,
     description,
     breadcrumbs: [
       { name: "Ambara", path: "/" },
       { name: "Blogs", path: "/blogs" },
-      { name: post.title, path: `/blogs/${post.slug}` },
+      { name: post.title, path: `/blog/${post.slug}` },
     ],
   });
 

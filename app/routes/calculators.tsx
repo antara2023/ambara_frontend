@@ -40,7 +40,8 @@ export default function Calculators({ loaderData }: Route.ComponentProps) {
         <h1 className="rise mt-4 font-display text-4xl font-semibold tracking-tight text-star [animation-delay:80ms] sm:text-5xl">{t("allCalculatorsTitle")}</h1>
         <p className="rise mx-auto mt-4 max-w-2xl text-mist [animation-delay:160ms]">{t("heroText")}</p>
       </header>
-      <Hub list={loaderData.list} lang={lang} sections={["popular", "categories"]} />
+      {/* Hub showing only the popular category */}
+      <Hub list={loaderData.list} lang={lang} sections={["popular"]} />
     </>
   );
 }

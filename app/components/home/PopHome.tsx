@@ -154,7 +154,8 @@ export function PopHome({ list, lang }: { list: CalculatorListItem[]; lang: Lang
         </section>
       )}
 
-      {/* All calculators by category */}
+      {/* All calculators by category hidden for now. To restore: remove comment wrapper. */}
+      {/*
       <section id="all" aria-labelledby="all-title" className="mx-auto max-w-6xl scroll-mt-24 px-4 pt-20 sm:px-6">
         <h2 id="all-title" className="pop-h2">
           {t("homeAll")}
@@ -167,13 +168,6 @@ export function PopHome({ list, lang }: { list: CalculatorListItem[]; lang: Lang
               <span className="pop-mono text-xs">{s.items.length}</span>
             </a>
           ))}
-          {/* Life questions navigation link hidden for now. To restore: uncomment below.
-          <a href="#tools" onClick={jump("tools")} className="pop-chip">
-            <span className="pop-dot" style={{ background: TILE.tools }} />
-            {t("sectionTools")}
-            <span className="pop-mono text-xs">{TOOLS.length}</span>
-          </a>
-          */}
         </nav>
 
         {sections.map((s) => (
@@ -194,26 +188,8 @@ export function PopHome({ list, lang }: { list: CalculatorListItem[]; lang: Lang
             </div>
           </div>
         ))}
-
-        {/* Life questions (AI tools) hidden for now. To restore: uncomment below.
-        <div id="tools" className="scroll-mt-32 pt-11">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="pop-dot !h-[18px] !w-[18px]" style={{ background: TILE.tools }} />
-            <h3 className="text-[1.9rem] font-extrabold leading-tight tracking-tight">{t("sectionTools")}</h3>
-            <span className="font-medium text-mist">{t("sectionToolsText")}</span>
-          </div>
-          <div className="mt-5 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
-            {TOOLS.map((tool) => (
-              <Link key={tool.slug} to={withLang(lang, `/tools/${tool.slug}`)} className="pop-card pop-card-small" style={{ "--tile": TILE.tools } as React.CSSProperties}>
-                <span className="pop-mono self-start rounded-full border-[1.5px] border-current px-2.5 py-0.5 text-[0.7rem]">{tool.tag[lang]}</span>
-                <span className="text-lg font-extrabold leading-tight tracking-tight">{tool.title[lang]}</span>
-                <span className="line-clamp-3 text-[0.95rem] font-medium leading-snug text-mist">{tool.description[lang]}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-        */}
       </section>
+      */}
 
       {/* Lumi, the AI astrologer, floating bottom-right */}
       <LumiLauncher />

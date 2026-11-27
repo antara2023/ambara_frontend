@@ -110,7 +110,8 @@ export default function CalculatorPage({ loaderData }: Route.ComponentProps) {
         </div>
       </section>
 
-      {/* Article */}
+      {/* Static Article content & On This Page table of contents commented out for all calculators.
+          To restore: uncomment the section below.
       {content.contentMarkdown && (
         <section aria-label={t("readArticle")} className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[230px_1fr]">
           <aside className="hidden lg:block">
@@ -123,8 +124,10 @@ export default function CalculatorPage({ loaderData }: Route.ComponentProps) {
           </div>
         </section>
       )}
+      */}
 
-      {/* FAQs */}
+      {/* Static FAQs section commented out for all calculators.
+          To restore: uncomment the section below.
       {content.faqs?.length > 0 && (
         <section className="mx-auto mt-20 max-w-3xl px-4 sm:px-6" aria-labelledby="faq">
           <Reveal>
@@ -135,8 +138,9 @@ export default function CalculatorPage({ loaderData }: Route.ComponentProps) {
           <Faqs faqs={content.faqs} />
         </section>
       )}
+      */}
 
-      {/* Try next */}
+      {/* Try next section commented out. To restore: uncomment below.
       {related.length > 0 && (
         <section className="mx-auto mt-20 max-w-6xl px-4 sm:px-6" aria-labelledby="related">
           <h2 id="related" className="mb-6 font-display text-2xl font-semibold text-star">
@@ -151,6 +155,7 @@ export default function CalculatorPage({ loaderData }: Route.ComponentProps) {
           </div>
         </section>
       )}
+      */}
     </>
   );
 }
